@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Appointment Booking</title>
+    <script>
+        function sendWhatsAppMessage() {
+            // Retrieve form values
+            var your_name = document.querySelector('input[placeholder="Your Name"]').value;
+            var your_email = document.querySelector('input[placeholder="Your Email"]').value;
+            var your_phone = document.querySelector('input[placeholder="Your Mobile"]').value;
+            var selected_service = document.querySelector('select').value;
+            var special_note = document.querySelector('textarea[placeholder="Special Note"]').value;
+
+            // Construct WhatsApp message
+            var message = "Book & Appointment"
+                + "\nYour Name: " + your_name
+                + "\nYour Email: " + your_email
+                + "\nYour Mobile: " + your_phone
+                + "\nSelected Service: " + selected_service
+                + "\nSpecial Note: " + special_note;
+
+            // Construct the WhatsApp URL
+            var whatsapp_url = "https://wa.me/919767445809?text=" + encodeURIComponent(message);
+
+            // Open the WhatsApp chat window
+            window.open(whatsapp_url, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="sendWhatsAppMessage(); return false;">
+        <div class="row g-3">
+            <div class="col-12 col-sm-6">
+                <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" class="form-control border-0" placeholder="Your Mobile" style="height: 55px;">
+            </div>
+            <div class="col-12 col-sm-6">
+                <select class="form-select border-0" style="height: 55px;">
+                    <option selected>Select A Service</option>
+                    <option value="Customize Furniture">Customize Furniture</option>
+                    <option value="Interior designing & Decoration">Interior designing & Decoration</option>
+                    <option value="Modular kitchen">Modular kitchen</option>
+                    <option value="All types of carpenter">All types of carpenter</option>
+                    <option value="Renovation & Remodeling">Renovation & Remodeling</option>
+                    <option value="Consultation Service">Consultation Service</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <textarea class="form-control border-0" placeholder="Special Note"></textarea>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
